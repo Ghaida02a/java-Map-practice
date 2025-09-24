@@ -28,13 +28,8 @@ class InventoryManager {
      * @param quantityToAdd The number of items to add.
      */
     public void restockItem(String itemName, int quantityToAdd) {
-        int currentItem = inventory.getOrDefault(itemName, 0);
-        if (!inventory.containsKey(itemName)) {
-            inventory.put(itemName, quantityToAdd);
-        }
-        else {
-            inventory.put(itemName, currentItem + quantityToAdd);
-        }
+        inventory.put(itemName, inventory.getOrDefault(itemName, 0) + quantityToAdd);
+
     }
 
     public Map<String, Integer> getInventory() {
